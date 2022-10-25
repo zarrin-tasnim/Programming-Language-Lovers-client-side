@@ -15,10 +15,10 @@ const Courses = () => {
     const { title, details, category_id, image_url } = news;
     return (
         
-        <Card>
+        <Card style={{ width: '28rem', marginLeft: '10px' }}>
             <h1 className='mb-5'> <FaDownload></FaDownload> Details Page</h1>
             
-            <Card.Img className='marginPic fluid' variant="top" src={image_url} style={{ height: '200px' ,width: '300px', marginLeft: '50px'}} />
+            <Card.Img className='marginPic fluid' variant="top" src={image_url} style={{ height: '200px' ,width: '300px', marginLeft: '30px'}} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
