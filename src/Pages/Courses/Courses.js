@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { FaGoogle, FaDownload } from "react-icons/fa";
+import { useMediaQuery } from 'react-responsive'
 
 
 
@@ -15,9 +16,9 @@ const Courses = () => {
     return (
         
         <Card>
-            <h1> <FaDownload></FaDownload> Details Page</h1>
+            <h1 className='mb-5'> <FaDownload></FaDownload> Details Page</h1>
             
-            <Card.Img variant="top" src={image_url} />
+            <Card.Img className='marginPic fluid' variant="top" src={image_url} style={{ height: '200px' ,width: '300px', marginLeft: '50px'}} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
