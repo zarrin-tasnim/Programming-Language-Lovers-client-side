@@ -60,7 +60,7 @@ const Register = () => {
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Your Name</Form.Label>
-                <Form.Control name="name" type="text" placeholder="Your Name" />
+                <Form.Control name="name" type="text" placeholder="Your Full Name" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Photo URL</Form.Label>

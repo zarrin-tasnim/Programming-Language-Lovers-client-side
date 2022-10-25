@@ -20,10 +20,12 @@ const Login = () => {
     const { signIn, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const [user, setUser] = useState([])
+
 
     const from = location.state?.from?.pathname || '/';
     //google auth
-    const { providerLogin } = useContext(AuthContext);
+    const { providerLogin, providerGithubLogin } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
@@ -37,16 +39,18 @@ const Login = () => {
             .catch(error => console.error(error))
     }
 
-    const handleGithubSignIn = () => {
-       
-
-        providerLogin(githubProvider)
+    const handelGithubSignIn = () => {
+        signInWithPopup(auth, githubProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                setUser(user)
+                console.log(user)
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error('error: ', error)
+            })
     }
+
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -94,7 +98,7 @@ const Login = () => {
                     Login
                 </Button>
                 <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Login with Google</Button>
-                <Button onClick={handleGithubSignIn} variant="outline-dark"> <FaGithub></FaGithub> Login with Github</Button>
+                <Button onClick={handelGithubSignIn} variant="outline-dark"> <FaGithub></FaGithub> Login with Github</Button>
             </ButtonGroup>
             <Form.Text className="text-danger">
                 {error}
