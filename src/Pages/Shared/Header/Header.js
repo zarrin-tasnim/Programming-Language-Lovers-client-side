@@ -23,21 +23,20 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
+        <Navbar collapseOnSelect className='mb-4' expand="lg" bg="dark" variant="dark">
             <Container>
-                <Image
-                    
-                    className='me-2'
-                    src="../../../assets/images.png"
-                    style={{ height: '60px' }}
-                ></Image>
+                <Link to="/">
+                    <img src='https://static.vecteezy.com/system/resources/previews/004/908/013/original/coding-logo-design-template-free-vector.jpg' style={{height: '60px'}} className='me-2' alt="" />
+                </Link>
+
                 <Navbar.Brand><Link to='/'>Programming Language Lovers</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Courses</Nav.Link>
-                        <Nav.Link href="#pricing">FAQ</Nav.Link>
-                        <Nav.Link href="#pricing">Blog</Nav.Link>
+                        <Link to='/course' className='me-2'>Courses</Link>
+                        <Link to='/faq' className='me-2'>FAQ</Link>
+                        <Link to='/blog' className='me-2'>Blog</Link>
+
                         <ToggleButtonGroup type="radio" name="options" defaultValue={2}>
                             <ToggleButton variant='dark' id="tbg-radio-1" value={1} >
                                 Dark
@@ -54,8 +53,8 @@ const Header = () => {
                             {
                                 user?.uid ?
                                     <>
-                                        <span>{user?.displayName}</span>
-                                        <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                                        <span style={{Height: '70px'}}>{user?.displayName}</span>
+                                        <Button variant="light" onClick={handleLogOut} style={{marginRight: '10px'}}>Log out</Button>
                                     </>
                                     :
                                     <>

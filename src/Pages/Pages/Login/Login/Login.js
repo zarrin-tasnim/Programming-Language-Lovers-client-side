@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { FaGoogle } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 
 
 const Login = () => {
@@ -41,6 +45,19 @@ const Login = () => {
                 setLoading(false);
             })
     }
+    // for google login
+    const { providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -58,6 +75,10 @@ const Login = () => {
             <Button variant="primary" type="submit">
                 Login
             </Button>
+            <ButtonGroup vertical>
+                <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Login with Google</Button>
+                <Button variant="outline-dark"> <FaGithub></FaGithub> Login with Github</Button>
+            </ButtonGroup>
             <Form.Text className="text-danger">
                 {error}
             </Form.Text>
