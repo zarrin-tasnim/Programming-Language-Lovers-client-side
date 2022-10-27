@@ -13,20 +13,21 @@ const Courses = () => {
     
 
     const { title, details, category_id, image_url } = news;
+    console.log("details news",news)
     return (
         
         <Card style={{ width: '28rem', marginLeft: '10px' }}>
             <h1 className='mb-5'> <FaDownload></FaDownload> Details Page</h1>
             
-            <Card.Img className='marginPic fluid' variant="top" src={image_url} style={{ height: '200px' ,width: '300px', marginLeft: '30px'}} />
+            <Card.Img className='margin img-fluid' variant="top" src={image_url} style={{ height: '200px' ,width: '300px', marginLeft: '30px'}} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
                     {details}
                 </Card.Text>
-                <Link to={`/category/${category_id}`}>
+                {/* <Link to={`/category/${category_id}`}>
                     <Button variant="primary">All news in this category</Button>
-                </Link>
+                </Link> */}
             </Card.Body>
         </Card>
     );

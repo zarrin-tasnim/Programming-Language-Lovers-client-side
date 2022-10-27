@@ -18,7 +18,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/courses ')
+                loader: () => fetch('https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/course ')
             },
             {
                 path: '/courses',
@@ -43,7 +43,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <PrivateRoute><Courses></Courses></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/${params.id}`)
+                loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/course/${params.id}`)
             },
             {
                 path: '/login',
