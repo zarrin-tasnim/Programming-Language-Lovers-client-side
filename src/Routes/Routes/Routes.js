@@ -7,9 +7,7 @@ import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
-
 import Course from "../../Pages/Pages/Course/Course";
-
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -20,32 +18,32 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/courses ')
             },
             {
-                path: '/couses',
+                path: '/courses',
                 element: <Course></Course>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/')
             },
             {
                 path: '/blog',
                 element: <Blog></Blog>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/')
             },
             {
                 path: '/faq',
                 element: <FAQ></FAQ>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/')
             },
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category-course/${params.id}`)
+                loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/category-course/${params.id}`)
             },
             {
                 path: '/course/:id',
                 element: <PrivateRoute><Courses></Courses></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-zarrin-tasnim.vercel.app/${params.id}`)
             },
             {
                 path: '/login',
